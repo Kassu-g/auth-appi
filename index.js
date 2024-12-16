@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
-
 const auth = express();
 auth.use(bodyParser.json());
 const port = 3000;
