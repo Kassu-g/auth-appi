@@ -5,25 +5,25 @@ const bcrypt = require('bcryptjs');
 const auth = express();
 auth.use(bodyParser.json());
 const port = 3000;
-const users = [];
+const kayt = [];
 
 auth.post('/api/user/register', async (req, res) => {
     const { email, password } = req.body;
 
-    if (users.find(user => user.email === email)) {
+    if (kayt.find(user => user.email === email)) {
         return res.status(403).json({ error: 'Email already in use' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 6);
+    const salattu = await bcrypt.hash(password, 6);
 
-    const newUser = { email, password: hashedPassword };
-    users.push(newUser);
+    const uusi = { email, password: salattu };
+    kayt.push(uusi);
 
-    res.status(201).json(newUser);
+    res.status(201).json(uusi);
 });
 
 auth.get('/api/user/list', (req, res) => {
-    res.status(200).json(users);
+    res.status(200).json(kayt);
 });
 
 auth.listen(port, () => {
