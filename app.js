@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const auth = express();
 auth.use(bodyParser.json());
-const port = 3000;
+const p = 3000;
 const kayt = [];
 const fs = require('fs');
 
@@ -27,6 +27,6 @@ auth.get('/api/user/list', (req, res) => {
     res.status(200).json(kayt);
 });
 
-auth.listen(port, () => {
-    console.log(`toimii: http://localhost:${port}`);
+auth.listen(p, () => {
+    console.log(`toimii: http://localhost:${p}`);
 });
